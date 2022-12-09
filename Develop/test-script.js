@@ -1,10 +1,12 @@
 var generateBtn = document.querySelector("#generate");
-
-var length = Number(prompt("Enter a password length between 8 and 128")),
-charCase = prompt("Enter uppercase or lowercase to select type-case")
-charType = prompt("Enter a character type: special or numeric"),
-password = generatePassword();
+generateBtn.addEventListener("click", generatePassword() {
+  
+var length = Number(prompt("Enter a password length between 8 and 128"));
+var charCase = prompt("Enter uppercase or lowercase to select type-case");
+var charType = prompt("Enter a character type: special or numeric");
+var password = generatePassword();
 document.getElementById("password").value = password;
+})
 //document.getElementById('copy-btn').addEventListener('click', copyPassword);
 
 function generatePassword() {
