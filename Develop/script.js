@@ -1,49 +1,55 @@
-// Assignment code here
+var length = Number(prompt("Enter a password length between 8 and 128")),
+  charType = prompt("Enter a character type: special, numeric, uppercase, lowercase."),
+  password = generatePassword();
+document.getElementById("password").value = password;
+// document.getElementById('copy-btn').addEventListener('click', copyPassword);
 
-
-// Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
-
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-
-passwordText.value = password;
-
+function generatePassword() {
+  var charSets = {
+    lowercase: 'abcdefghijklmnopqrstuvwxyz',
+    uppercase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+    numeric: '0123456789',
+    special: ' !"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
+  };
+  var charSet = charSets[charType.toLowerCase()] || charSets.lowercase;
+  var retVal = "";
+  for (var i = 0; i < length; i++) {
+    retVal += charSet.charAt(Math.floor(Math.random() * charSet.length));
+  }
+  return retVal;
 }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword());
+function copyPassword() {
+  document.getElementById("display").select();
+  document.execCommand("Copy");
+  alert("Password copied to clipboard!");
+}
 
 
-var chars = "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-var passwordLength = 12;
-var password = "";
-for (var i = 0; i < passwordLength; i++) {
-var randomNumner = Math.floor(Math.random() * chars.length);
-password += chars.substring(randomNumber, randomNumber +1)
+var length = Number(prompt("Enter a password length between 8 and 128"));
+   charCase = prompt("Enter uppercase or lowercase");
+   charType = prompt("Enter special or numeric to use characters");
+   password = generatePassword();
+document.getElementById("password").value = password;
 
-// characters:  !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
+function generatePassword() {
+    var banana = {
+        lowercase: 'abcdefghijklmnopqrstuvwxyz',
+        uppercase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+        numeric: '0123456789',
+        special: ' !"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
+    };
+    var charSet = banana[charType.toLowerCase()] + banana[charCase.toLowerCase()];
+    var retVal = "";
+    for (var i = 0; i < length; i++) {
+        retVal += charSet.charAt(Math.floor(Math.random() * charSet.length));
+      }
+      return retVal;
+}
 
-//references for window prompts 
-//var options = ["R", "P", "S"];
 
-//var playGame = function() {
-  // Ask user for their choice
- // var userChoice = window.prompt("Enter R, P, or S:");
 
-  // If user pressed Cancel, immediately end function
-  //if (!userChoice) {
-   // return;
-  //}
 
-  // Convert to uppercase to make comparisons easier
-  //userChoice = userChoice.toUpperCase();
-
-  // Get random index from array of options
- // var index = Math.floor(Math.random() * options.length);
-  //var computerChoice = options[index];
-
- // window.alert("The computer chose " + computerChoice);
+ 
+ 
+ 
