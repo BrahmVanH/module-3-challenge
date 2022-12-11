@@ -9,11 +9,11 @@ var confirmNumber;
 
 // Create arrays for password characters
 
-charSpecial = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
+charSpecial =  ["\\", ".", "+", "*", "?", "[", "^", "]", "$", "(", ")", "{", "}", "=", "!", "<", ">", "|", ":", "-"]
 
 charLower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-charNumber = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+charNumber = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 
 space = [];
 
@@ -21,12 +21,13 @@ space = [];
 
 var choices;
 
+// used to generate uppercase letters 
+
 var toUpper = function(x) {
   return x.toUpperCase();
 }
 
 
-// used to generate uppercase letters 
 charUpper = charLower.map(toUpper);
 
 // Create an objecto out of the Generate button element
@@ -51,16 +52,19 @@ function generatePassword () {
   if (!enter) {
    
     alert("You must enter a value!");
+    //enter = parseInt(prompt("How many characters would you like your password? Choose between 8 and 128"));
   
   } else if (enter < 8 || enter > 128) {
     
-    enter = parseInt(prompt("You must select a value between 8 and 128"));
-  
+    enter = parseInt(alert("You must select a value between 8 and 128"));
+   
+// Prompts user with confirm windows to include different criteria
+
   } else {
-    confirmSpecial = confirm("Do you want to include special characters?")
-    confirmUpper = confirm("Do you want to include uppercase characters?")
-    confirmLower = confirm("Do you want to include lowercase characters?")
-    confirmNumber = confirm("Do you want to include numbers?")
+    confirmSpecial = confirm("Do you want to include special characters?");
+    confirmUpper = confirm("Do you want to include uppercase characters?");
+    confirmLower = confirm("Do you want to include lowercase characters?");
+    confirmNumber = confirm("Do you want to include numbers?");
 
 
   }
@@ -69,7 +73,10 @@ function generatePassword () {
 
   if (!confirmSpecial && !confirmUpper && !confirmLower && !confirmNumber) {
       
-    parseInt(prompt("You must choose criteria!"));
+    parseInt(alert("You must choose criteria!"));
+    return "Press Generate Password.";
+
+    
   
   }
 
@@ -95,7 +102,7 @@ choices = charSpecial.concat(charUpper, charLower, charNumber);
 
   }
   
-  else if (confirmSpecial && confirLower && confirmNumber) {
+  else if (confirmSpecial && confirmLower && confirmNumber) {
 
     choices = charSpecial.concat(charLower, charNumber);
 
@@ -139,7 +146,7 @@ choices = charSpecial.concat(charUpper, charLower, charNumber);
 
   }
 
-  else if (condirmLower && confirmNumber) {
+  else if (confirmLower && confirmNumber) {
 
     choices = charLower.concat(charNumber);
 
@@ -169,7 +176,7 @@ choices = charSpecial.concat(charUpper, charLower, charNumber);
 
     choices = charLower;
 
-  }
+  };
 
   var password = []
 
@@ -187,12 +194,12 @@ choices = charSpecial.concat(charUpper, charLower, charNumber);
   var ps = password.join("");
     UserInput(ps);
     return ps;
-}
+};
 
 function UserInput(ps) {
   document.getElementById("password").textContent = ps;
 
-}
+};
 
 
 
