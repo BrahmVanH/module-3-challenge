@@ -1,5 +1,5 @@
-Module-1-Challenge
-
+Module-3-Challenge
+Random-Password-Generator
 ## Description
 
 This project was a review in using javascript to add interactive and logical content to an existing webpage. Using conditional logic, we created a password generator that allows the user to include up to four different criteria in creating the password as well as determining the length of the password.
